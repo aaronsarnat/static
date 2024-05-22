@@ -1,3 +1,7 @@
 .gap-default {
     gap: toPx($gutter);
 }
+
+.gap-lg {
+    gap: toPx($gutter-lg);
+}

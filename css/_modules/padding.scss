@@ -1,3 +1,9 @@
 .padding-default {
-    padding: toPx($pageMargin);    
+    padding: toPx($gutter);    
+}
+
+@container section (min-width: #{toPx($media-breakpoint-tablet-portrait)}) {
+    .padding-default {
+        padding: toPx($pageMargin);    
+    }
 }

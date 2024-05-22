@@ -1,12 +1,16 @@
 ---
 ---
 // Knobs
-$refWidth: 1440;
+$refWidth: 1920;
+$maxContentWidth: 1600;
 $gridCols: 12;
-$gutter: 16;
-$maxContentWidth: 1200;
 $pageMargin: 32;
 
+// Gutter
+$gutter: 16;
+$gutter-lg: 40;
+
+// Colors
 $color-offBlack: #0a3235;
 $color-offWhite: #faf2e9;
 $color-pink: #f0529c;
@@ -18,16 +22,22 @@ $color-black: #000;
 $pageBg: $color-offWhite;
 $pageFont: Arial, sans-serif;
 
+// Media
+$media-breakpoint-tablet-portrait: 700;
+
 @function toPx($v) {
     @return #{$v}px;
 }
 
 @import 'base';
+@import 'section';
+
 @import 'bg';
 @import 'center';
+@import 'content';
 @import 'dev';
 @import 'gap';
 @import 'grid';
 @import 'padding';
-@import 'section';
+
 @import 'width';

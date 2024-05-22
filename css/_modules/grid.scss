@@ -1,11 +1,24 @@
-/* columns module: core */
-// TODO: consider if this would make more sense renamed to grid. .grid-1, .grid-2, etc.
+@mixin templateCols {
+    grid-template-columns: repeat($gridCols, calc(100% / $gridCols));
+
+    &.gap-default {
+        grid-template-columns: repeat($gridCols, calc((100% / $gridCols) - #{toPx(($gutter * ($gridCols - 1)) / $gridCols)}));
+    }
+
+    &.gap-lg {
+        grid-template-columns: repeat($gridCols, calc((100% / $gridCols) - #{toPx(($gutter-lg * ($gridCols - 1)) / $gridCols)}));
+    }
+}
 
 // any element with a class that starts with "grid-"
-.grid,
 [class^="grid-"],
 [class*=' grid-'] {
-  display: grid;
+    display: grid;
+}
+
+.grid-1-col,
+.grid-mobile-1-col {
+    grid-template-columns: 1fr;
 }
 
 .grid-2-col {
@@ -24,35 +37,125 @@
     grid-template-columns: repeat(6, 1fr);
 }
 
+[class^="grid-2-col-"],
+[class*=' grid-2-col-'] {
+    @include templateCols;
+}
+
+.grid-2-col-1-2 {
+    :nth-child(odd) {
+        grid-column-start: span 4;
+    }
+
+    :nth-child(even) {
+        grid-column-start: span 8;
+    }
+}
+
+.grid-2-col-1-3 {
+    :nth-child(odd) {
+        grid-column-start: span 3;
+    }
+
+    :nth-child(even) {
+        grid-column-start: span 9;
+    }
+}
+
+.grid-2-col-1-5 {
+    :nth-child(odd) {
+        grid-column-start: span 2;
+    }
+
+    :nth-child(even) {
+        grid-column-start: span 10;
+    }
+}
 
 .grid-2-col-1-11 {
-    grid-template-columns: 1fr 11fr;
+    :nth-child(odd) {
+        grid-column-start: span 1;
+    }
+
+    :nth-child(even) {
+        grid-column-start: span 11;
+    }
+}
+
+.grid-2-col-2-1 {
+    :nth-child(odd) {
+        grid-column-start: span 8;
+    }
+
+    :nth-child(even) {
+        grid-column-start: span 4;
+    }
+}
+
+.grid-2-col-3-1 {
+    :nth-child(odd) {
+        grid-column-start: span 9;
+    }
+
+    :nth-child(even) {
+        grid-column-start: span 3;
+    }
+}
+
+.grid-2-col-5-1 {
+    :nth-child(odd) {
+        grid-column-start: span 10;
+    }
+
+    :nth-child(even) {
+        grid-column-start: span 2;
+    }
+}
+
+.grid-2-col-11-1 {
+    :nth-child(odd) {
+        grid-column-start: span 11;
+    }
+
+    :nth-child(even) {
+        grid-column-start: span 1;
+    }
 }
 
 .grid-2-col-5-7 {
-    grid-template-columns: 5fr 7fr;
+    :nth-child(odd) {
+        grid-column-start: span 5;
+    }
+
+    :nth-child(even) {
+        grid-column-start: span 7;
+    }
 }
   
 .grid-2-col-7-5 {
-    grid-template-columns: 7fr 5fr;
+    :nth-child(odd) {
+        grid-column-start: span 7;
+    }
+
+    :nth-child(even) {
+        grid-column-start: span 5;
+    }
 }
 
+// Above Tablet Portrait
+@container section (min-width: #{toPx($media-breakpoint-tablet-portrait)}) {
+    [class^="grid-dsktop-2-col-"],
+    [class*=' grid-dsktop-2-col-'] {
+        @include templateCols;
+    }
 
-// @include media-mobile-only {
-//   .grid-2-col,
-//   .grid-2-col-5-7,
-//   .grid-2-col-7-5,
-//   .grid-3-col,
-//   .grid-4-col {
-//     grid-template-columns: 1fr;
-//   }
-// }
-
-.grid-no-stretch {
-    align-items: flex-start;
-}
-
-.grid-vertically-center-children > * {
-    align-self: center;
-    justify-self: center;
+    .grid-dsktop-2-col-7-5 {
+        :nth-child(odd) {
+            grid-column-start: span 7;
+        }
+    
+        :nth-child(even) {
+            grid-column-start: span 5;
+        }
+    }
 }
