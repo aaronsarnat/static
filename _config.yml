@@ -1,0 +1,9 @@
+timezone: America/Los_Angeles
+baseurl: ""
+markdown: kramdown
+sass:
+  sass_dir: css/_modules
+  style: expanded
+plugins:
+  - jekyll-feed
+port: 4001
