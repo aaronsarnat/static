@@ -8,30 +8,35 @@
   display: grid;
 }
 
-// 2 column layout, equal widths
 .grid-2-col {
-  grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
-// 2 column layout with 5:7 ratio
-.grid-2-col-5-7 {
-  grid-template-columns: 5fr 7fr;
-}
-
-// 2 column layout with 7:5 ratio
-.grid-2-col-7-5 {
-  grid-template-columns: 7fr 5fr;
-}
-
-// 3 column layout, equal widths
 .grid-3-col {
-  grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
-// 4 column layout, equal widths
 .grid-4-col {
-  grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
+
+.grid-6-col {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+
+.grid-2-col-1-11 {
+    grid-template-columns: 1fr 11fr;
+}
+
+.grid-2-col-5-7 {
+    grid-template-columns: 5fr 7fr;
+}
+  
+.grid-2-col-7-5 {
+    grid-template-columns: 7fr 5fr;
+}
+
 
 // @include media-mobile-only {
 //   .grid-2-col,
@@ -44,10 +49,10 @@
 // }
 
 .grid-no-stretch {
-  align-items: flex-start;
+    align-items: flex-start;
 }
 
 .grid-vertically-center-children > * {
-  align-self: center;
-  justify-self: center;
+    align-self: center;
+    justify-self: center;
 }

@@ -7,25 +7,27 @@ $gutter: 16;
 $maxContentWidth: 1200;
 $pageMargin: 32;
 
+$color-offBlack: #0a3235;
+$color-offWhite: #faf2e9;
+$color-pink: #f0529c;
+$color-purple: #b11be8;
+$color-green: #0fcb8c;
+$color-white: #fff;
+$color-black: #000;
+
+$pageBg: $color-offWhite;
+$pageFont: Arial, sans-serif;
+
 @function toPx($v) {
     @return #{$v}px;
 }
 
 @import 'base';
 @import 'bg';
+@import 'center';
 @import 'dev';
+@import 'gap';
 @import 'grid';
 @import 'padding';
 @import 'section';
 @import 'width';
-
-section {
-    background: silver;
-}
-
-.grid-2-col {
-    div {
-        min-height: 500px;
-        background: #fff;
-    }
-}

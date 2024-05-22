@@ -1,3 +1,9 @@
 .section {
-    container-type: inline-size;
+    container: section / inline-size;
+}
+
+@container section (min-width: 700px) {
+    // .card {
+    //   font-size: 2em;
+    // }
 }
