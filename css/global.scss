@@ -1,13 +1,14 @@
 ---
 ---
 // Knobs
-$refWidth: 1920;
-$maxContentWidth: 1600;
+$refWidth: 1440;
+$pageMargin: 72;
+
+$maxContentWidth: $refWidth - $pageMargin * 2;
 $gridCols: 12;
-$pageMargin: 32;
 
 // Gutter
-$gutter: 16;
+$gutter: 20;
 $gutter-lg: 40;
 
 // Colors
@@ -23,11 +24,19 @@ $pageBg: $color-offWhite;
 $pageFont: Arial, sans-serif;
 
 // Media
-$media-breakpoint-tablet-portrait: 700;
+$media-breakpoint-mobile: 576;
+$media-breakpoint-tablet-portrait: 768;
+$media-breakpoint-desktop: 992;
 
 @function toPx($v) {
     @return #{$v}px;
 }
+
+@function colWidths($v) {
+    @return clamp(#{toPx($gutter)}, calc(#{$v} * (((100cqw - #{toPx($pageMargin * 2)}) / $gridCols) + #{toPx($gutter / $gridCols)})), #{toPx($v * (($maxContentWidth / $gridCols) + ($gutter / $gridCols)))});
+}
+
+$paddingDynamic: #{colWidths(2)};
 
 @import 'base';
 @import 'section';

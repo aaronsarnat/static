@@ -7,3 +7,8 @@
         padding: toPx($pageMargin);    
     }
 }
+
+.padding-dynamic {
+    box-sizing: border-box;
+    padding: $paddingDynamic;
+}
